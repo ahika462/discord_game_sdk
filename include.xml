@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<extension xmlns='https://lime.openfl.org/project/1.0.4' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='https://lime.openfl.org/project/1.0.4 https://lime.openfl.org/xsd/project-1.0.4.xsd'>
+
+	<!-- <assets path='lib/aarch64' rename='' if='linux'/> -->
+
+	<section if='windows'>
+		<section if='lime'>
+			<assets path='lib/x86/discord_game_sdk.dll' rename='discord_game_sdk.dll' if='32bit'/>
+			<assets path='lib/x86_64/discord_game_sdk.dll' rename='discord_game_sdk.dll' unless='32bit'/>
+		</section>
+		<section unless='lime'>
+			<assets path='lib/x86/discord_game_sdk.dll' rename='discord_game_sdk.dll' unless='HXCPP_M64'/>
+			<assets path='lib/x86_64/discord_game_sdk.dll' rename='discord_game_sdk.dll' if='HXCPP_M64'/>
+		</section>
+	</section>
+
+	<source path='haxe' />
+
+</extension>

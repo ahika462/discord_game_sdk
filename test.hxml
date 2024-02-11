@@ -1,0 +1,6 @@
+--class-path haxe
+--main Test
+
+--cpp bin/cpp
+
+--cmd copy .\lib\x86\discord_game_sdk.dll .\bin\cpp
