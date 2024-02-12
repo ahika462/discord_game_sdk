@@ -5,7 +5,7 @@ package discord_game_sdk;
  */
 
 @:keep
-@:build(linc.Linc.touch())
-@:build(linc.Linc.xml('discord_game_sdk'))
+@:build(discord_game_sdk.linc.Linc.touch())
+@:build(discord_game_sdk.linc.Linc.xml('discord_game_sdk'))
 
 class DiscordGameSDK {}
