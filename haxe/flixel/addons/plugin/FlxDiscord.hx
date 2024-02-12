@@ -31,8 +31,8 @@ class FlxDiscord extends FlxBasic {
 	}
 
 	override function destroy() {
-		core = null;
 		super.destroy();
+		core = null;
 	}
 
 	/**
