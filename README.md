@@ -9,5 +9,5 @@
 * [x] Managers
 * [ ] Events
 * [ ] Finish Overlay Manager
-* [ ] Optimize types
-* [ ] Fix Activity Assets
+* [x] Fix Activity Assets
+* [ ] Fix Flixel compability

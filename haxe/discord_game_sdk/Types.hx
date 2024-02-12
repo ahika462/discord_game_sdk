@@ -222,12 +222,12 @@ typedef DateTime = String;
 	var internal_:DiscordUser;
 
 	@:functionCode('internal_ = discord::User();')
-	public function new(id:UserId = 0, username:String = '', discriminator:String = '', avatar:String = '', bot:Bool = false) {
-		this.id = id;
-		this.username = username;
-		this.discriminator = discriminator;
-		this.avatar = avatar;
-		this.bot = bot;
+	public function new(?id:UserId, ?username:String, ?discriminator:String, ?avatar:String, ?bot:Bool) {
+		if (id != null) this.id = id;
+		if (username != null) this.username = username;
+		if (discriminator != null) this.discriminator = discriminator;
+		if (avatar != null) this.avatar = avatar;
+		if (bot != null) this.bot = bot;
 	}
 
 	public var id(get, set):UserId;
@@ -289,10 +289,10 @@ class OAuth2Token {
 	var internal_:DiscordOAuth2Token;
 
 	@:functionCode('internal_ = discord::OAuth2Token();')
-	public function new(accessToken:String = '', scopes:String = '', expires:Timestamp = 0) {
-		this.accessToken = accessToken;
-		this.scopes = scopes;
-		this.expires = expires;
+	public function new(?accessToken:String, ?scopes:String, ?expires:Timestamp) {
+		if (accessToken != null) this.accessToken = accessToken;
+		if (scopes != null) this.scopes = scopes;
+		if (expires != null) this.expires = expires;
 	}
 
 	public var accessToken(get, set):String;
@@ -334,10 +334,10 @@ class OAuth2Token {
 	var internal_:DiscordImageHandle;
 
 	@:functionCode('internal_ = discord::ImageHandle();')
-	public function new(type:ImageType = User, id:Int64 = 0, size:UInt32 = 0) {
-		this.type = type;
-		this.id = id;
-		this.size = size;
+	public function new(?type:ImageType, ?id:Int64, ?size:UInt32) {
+		if (type != null) this.type = type;
+		if (id != null) this.id = id;
+		if (size != null) this.size = size;
 	}
 	
 	public var type(get, set):ImageType;
@@ -379,9 +379,9 @@ class OAuth2Token {
 	var internal_:DiscordImageDimensions;
 
 	@:functionCode('internal_ = discord::ImageDimensions();')
-	public function new(width:UInt32 = 0, height:UInt32 = 0) {
-		this.width = width;
-		this.height = height;
+	public function new(?width:UInt32, ?height:UInt32) {
+		if (width != null) this.width = width;
+		if (height != null) this.height = height;
 	}
 
 	public var width(get, set):UInt32;
@@ -413,9 +413,9 @@ class OAuth2Token {
 	var internal_:DiscordActivityTimestamps;
 
 	@:functionCode('internal_ = discord::ActivityTimestamps();')
-	public function new(start:Timestamp = 0, end:Timestamp = 0) {
-		this.start = start;
-		this.end = end;
+	public function new(?start:Timestamp, ?end:Timestamp) {
+		if (start != null) this.start = start;
+		if (end != null) this.end = end;
 	}
 
 	public var start(get, set):Timestamp;
@@ -447,11 +447,11 @@ class OAuth2Token {
 	var internal_:DiscordActivityAssets;
 
 	@:functionCode('internal_ = discord::ActivityAssets();')
-	public function new(largeImage:String = '', largeText:String = '', smallImage:String = '', smallText:String = '') {
-		this.largeImage = largeImage;
-		this.largeText = largeText;
-		this.smallImage = smallImage;
-		this.smallText = smallText;
+	public function new(?largeImage:String, ?largeText:String, ?smallImage:String, ?smallText:String) {
+		if (largeImage != null) this.largeImage = largeImage;
+		if (largeText != null) this.largeText = largeText;
+		if (smallImage != null) this.smallImage = smallImage;
+		if (smallText != null) this.smallText = smallText;
 	}
 
 	public var largeImage(get, set):String;
@@ -503,9 +503,9 @@ class OAuth2Token {
 	var internal_:DiscordPartySize;
 
 	@:functionCode('internal_ = discord::PartySize();')
-	public function new(currentSize:Int32 = 0, maxSize:Int32 = 0) {
-		this.currentSize = currentSize;
-		this.maxSize = maxSize;
+	public function new(?currentSize:Int32, ?maxSize:Int32) {
+		if (currentSize != null) this.currentSize = currentSize;
+		if (maxSize != null) this.maxSize = maxSize;
 	}
 
 	public var currentSize(get, set):Int32;
@@ -538,9 +538,10 @@ class OAuth2Token {
 	var internal_:DiscordActivityParty;
 
 	@:functionCode('internal_ = discord::ActivityParty();')
-	public function new(id:String = '', size:PartySize = null, privacy:ActivityPartyPrivacy = Private) {
-		this.id = id;
-		this.privacy = privacy;
+	public function new(?id:String, ?size:PartySize, ?privacy:ActivityPartyPrivacy) {
+		if (id != null) this.id = id;
+		if (size != null) this.size = size;
+		if (privacy != null) this.privacy = privacy;
 	}
 
 	public var id(get, set):String;
@@ -586,10 +587,10 @@ class OAuth2Token {
 	var internal_:DiscordActivitySecrets;
 
 	@:functionCode('internal_ = discord::ActivitySecrets();')
-	public function new(match:String = '', join:String = '', spectate:String ='') {
-		this.match = match;
-		this.join = join;
-		this.spectate = spectate;
+	public function new(?match:String, ?join:String, ?spectate:String) {
+		if (match != null) this.match = match;
+		if (join != null) this.join = join;
+		if (spectate != null) this.spectate = spectate;
 	}
 
 	public var match(get, set):String;
@@ -635,18 +636,18 @@ class OAuth2Token {
 	var internal_:DiscordActivity;
 
 	@:functionCode('internal_ = discord::Activity();')
-	public function new(type:ActivityType = Playing, applicationId:Int64 = 0, name:String = '', state:String = '', details:String = '', timestamps:ActivityTimestamps = null, assets:ActivityAssets = null, party:ActivityParty = null, secrets:ActivitySecrets = null, instance:Bool = false, supportedPlatforms:ActivitySupportedPlatformFlags = Desktop) {
-		this.type = type;
-		this.applicationId = applicationId;
-		this.name = name;
-		this.state = state;
-		this.details = details;
-		this.timestamps = (timestamps != null ? timestamps : {});
-		this.assets = (assets != null ? assets : {});
-		this.party = (party != null ? party : {});
-		this.secrets = (secrets != null ? secrets : {});
-		this.instance = instance;
-		this.supportedPlatforms = supportedPlatforms;
+	public function new(?type:ActivityType, ?applicationId:Int64, ?name:String, ?state:String, ?details:String, ?timestamps:ActivityTimestamps, ?assets:ActivityAssets, ?party:ActivityParty, ?secrets:ActivitySecrets, ?instance:Bool, ?supportedPlatforms:ActivitySupportedPlatformFlags) {
+		if (type != null) this.type = type;
+		if (applicationId != null) this.applicationId = applicationId;
+		if (name != null) this.name = name;
+		if (state != null) this.state = state;
+		if (details != null) this.details = details;
+		if (timestamps != null) this.timestamps = timestamps;
+		if (assets != null) this.assets = assets;
+		if (party != null) this.party = party;
+		if (secrets != null) this.secrets = secrets;
+		if (instance != null) this.instance = instance;
+		if (supportedPlatforms != null) this.supportedPlatforms = supportedPlatforms;
 	}
 
 	public var type(get, set):ActivityType;
@@ -790,9 +791,9 @@ class OAuth2Token {
 	var internal_:DiscordPresence;
 
 	@:functionCode('internal_ = discord::Presence();')
-	public function new(status:Status = Offline, activity:Activity = null) {
-		this.status = status;
-		this.activity = (activity != null ? activity : {});
+	public function new(?status:Status, ?activity:Activity) {
+		if (status != null) this.status = status;
+		if (activity != null) this.activity = activity;
 	}
 
 	public var status(get, set):Status;
@@ -848,10 +849,10 @@ class OAuth2Token {
 	var internal_:DiscordRelationship;
 
 	@:functionCode('internal_ = discord::Relationship();')
-	public function new(type:RelationshipType = None, user:User = null, presence:Presence = null) {
-		this.type = type;
-		this.user = (user != null ? user : {});
-		this.presence = (presence != null ? presence : {});
+	public function new(?type:RelationshipType, ?user:User, ?presence:Presence) {
+		if (type != null) this.type = type;
+		if (user != null) this.user = user;
+		if (presence != null) this.presence = presence;
 	}
 
 	public var type(get, set):RelationshipType;
@@ -923,13 +924,13 @@ class OAuth2Token {
 	var internal_:DiscordLobby;
 
 	@:functionCode('internal_ = discord::Lobby();')
-	public function new(id:LobbyId = 0, type:LobbyType = Private, ownerId:UserId = 0, secret:LobbySecret = '', capacity:UInt32 = 0, locked:Bool = false) {
-		this.id = id;
-		this.type = type;
-		this.ownerId = ownerId;
-		this.secret = secret;
-		this.capacity = capacity;
-		this.locked = locked;
+	public function new(?id:LobbyId, ?type:LobbyType, ?ownerId:UserId, ?secret:LobbySecret, ?capacity:UInt32, ?locked:Bool) {
+		if (id != null) this.id = id;
+		if (type != null) this.type = type;
+		if (ownerId != null) this.ownerId = ownerId;
+		if (secret != null) this.secret = secret;
+		if (capacity != null) this.capacity = capacity;
+		if (locked != null) this.locked = locked;
 	}
 
 	public var id(get, set):LobbyId;
@@ -1001,12 +1002,12 @@ class OAuth2Token {
 	var internal_:DiscordImeUnderline;
 
 	@:functionCode('internal_ = discord::ImeUnderline();')
-	public function new(from:Int32 = 0, to:Int32 = 0, color:UInt32 = 0, backgroundColor:UInt32 = 0, thick:Bool = false) {
-		this.from = from;
-		this.to = to;
-		this.color = color;
-		this.backgroundColor = backgroundColor;
-		this.thick = thick;
+	public function new(?from:Int32, ?to:Int32, ?color:UInt32, ?backgroundColor:UInt32, ?thick:Bool) {
+		if (from != null) this.from = from;
+		if (to != null) this.to = to;
+		if (color != null) this.color = color;
+		if (backgroundColor != null) this.backgroundColor = backgroundColor;
+		if (thick != null) this.thick = thick;
 	}
 
 	public var from(get, set):Int32;
@@ -1068,11 +1069,11 @@ class OAuth2Token {
 	var internal_:DiscordRect;
 
 	@:functionCode('internal_ = discord::Rect();')
-	public function new(left:Int32 = 0, top:Int32 = 0, right:Int32 = 0, bottom:Int32 = 0) {
-		this.left = left;
-		this.top = top;
-		this.right = right;
-		this.bottom = bottom;
+	public function new(?left:Int32, ?top:Int32, ?right:Int32, ?bottom:Int32) {
+		if (left != null) this.left = left;
+		if (top != null) this.top = top;
+		if (right != null) this.right = right;
+		if (bottom != null) this.bottom = bottom;
 	}
 
 	public var left(get, set):Int32;
@@ -1124,10 +1125,10 @@ class OAuth2Token {
 	var internal_:DiscordFileStat;
 
 	@:functionCode('internal_ = discord::FileStat();')
-	public function new(filename:String = '', size:UInt64 = 0, lastModified:UInt64 = 0) {
-		this.filename = filename;
-		this.size = size;
-		this.lastModified = lastModified;
+	public function new(?filename:String, ?size:UInt64, ?lastModified:UInt64) {
+		if (filename != null) this.filename = filename;
+		if (size != null) this.size = size;
+		if (lastModified != null) this.lastModified = lastModified;
 	}
 
 	public var filename(get, set):String;
@@ -1169,10 +1170,10 @@ class OAuth2Token {
 	var internal_:DiscordEntitlement;
 
 	@:functionCode('internal_ = discord::Entitlement();')
-	public function new(id:Snowflake = 0, type:EntitlementType = Purchase, skuId:Snowflake) {
-		this.id = id;
-		this.type = type;
-		this.skuId = skuId;
+	public function new(?id:Snowflake, ?type:EntitlementType, ?skuId:Snowflake) {
+		if (id != null) this.id = id;
+		if (type != null) this.type = type;
+		if (skuId != null) this.skuId = skuId;
 	}
 
 	public var id(get, set):Snowflake;
@@ -1214,9 +1215,9 @@ class OAuth2Token {
 	var internal_:DiscordSkuPrice;
 
 	@:functionCode('internal_ = discord::SkuPrice')
-	public function new(amount:UInt32 = 0, currency:String = '') {
-		this.amount = amount;
-		this.currency = currency;
+	public function new(?amount:UInt32, ?currency:String) {
+		if (amount != null) this.amount = amount;
+		if (currency != null) this.currency = currency;
 	}
 
 	public var amount(get, set):UInt32;
@@ -1249,11 +1250,11 @@ class OAuth2Token {
 	var internal_:DiscordSku;
 
 	@:functionCode('internal_ = discord::Sku();')
-	public function new(id:Snowflake = 0, type:SkuType = Application, name:String = '', price:SkuPrice = null) {
-		this.id = id;
-		this.type = type;
-		this.name = name;
-		this.price = (price != null ? price : {});
+	public function new(?id:Snowflake, ?type:SkuType, ?name:String, ?price:SkuPrice) {
+		if (id != null) this.id = id;
+		if (type != null) this.type = type;
+		if (name != null) this.name = name;
+		if (price != null) this.price = (price != null ? price : {});
 	}
 
 	public var id(get, set):Snowflake;
@@ -1309,9 +1310,9 @@ class OAuth2Token {
 	var internal_:DiscordInputMode;
 
 	@:functionCode('internal_ = discord::InputMode();')
-	public function new(type:InputModeType = VoiceActivity, shortcut:String = '') {
-		this.type = type;
-		this.shortcut = shortcut;
+	public function new(?type:InputModeType, ?shortcut:String) {
+		if (type != null) this.type = type;
+		if (shortcut != null) this.shortcut = shortcut;
 	}
 
 	public var type(get, set):InputModeType;
@@ -1343,11 +1344,11 @@ class OAuth2Token {
 	var internal_:DiscordUserAchievement;
 
 	@:functionCode('internal_ = discord::UserAchievement();')
-	public function new(userId:Snowflake = 0, achievementId:Snowflake = 0, percentComplete:UInt8 = 0, unlockedAt:String = '') {
-		this.userId = userId;
-		this.achievementId = achievementId;
-		this.percentComplete = percentComplete;
-		this.unlockedAt = unlockedAt;
+	public function new(?userId:Snowflake, ?achievementId:Snowflake, ?percentComplete:UInt8, ?unlockedAt:String) {
+		if (userId != null) this.userId = userId;
+		if (achievementId != null) this.achievementId = achievementId;
+		if (percentComplete != null) this.percentComplete = percentComplete;
+		if (unlockedAt != null) this.unlockedAt = unlockedAt;
 	}
 
 	public var userId(get, set):Snowflake;
