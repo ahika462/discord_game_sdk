@@ -1,6 +1,4 @@
 .vscode/
-bin/
-dump/
-examples/
-test.hxml
-Test.hx
+examples/haxe/bin/
+examples/haxe/dump/
+test/
