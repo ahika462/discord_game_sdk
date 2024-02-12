@@ -2,8 +2,6 @@
 
 <img src="richpresence.png" alt="drawing" width="75%" height=50%/>
 
-## Assets don't work (╥﹏╥)
-
 # TODO:
 
 * [x] Managers
