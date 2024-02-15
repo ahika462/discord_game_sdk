@@ -21,7 +21,7 @@ class ApplicationManager {
 		core->internal_->ApplicationManager().GetCurrentLocale(chars);
 
 		const char* locale = "";
-		for (int i; i <= 128 - 1; i++)
+		for (int i = 0; i <= 128 - 1; i++)
 			locale += chars[i];
 
 		return locale;
@@ -35,7 +35,7 @@ class ApplicationManager {
 		core->internal_->ApplicationManager().GetCurrentBranch(chars);
 
 		const char* branch = "";
-		for (int i; i<= 4096 - 1; i++)
+		for (int i = 0; i<= 4096 - 1; i++)
 			branch += chars[i];
 
 		return branch;

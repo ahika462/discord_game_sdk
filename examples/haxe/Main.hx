@@ -4,7 +4,7 @@ import discord_game_sdk.Core;
 
 class Main {
 	static function main() {
-		var clientID:String = '418559331265675294';
+		var clientID:String = '1207563784365805618';
 		var core:Core = new Core();
 		Core.create(Int64Helper.parseString(clientID), NoRequireDiscord, core);
 		core.setLogHook(Debug, (level:LogLevel, message:String) -> trace('Log[$level] $message'));
