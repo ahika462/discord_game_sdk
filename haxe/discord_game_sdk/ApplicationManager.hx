@@ -1,7 +1,6 @@
 package discord_game_sdk;
 
-import discord_game_sdk.Types.OAuth2Token;
-import discord_game_sdk.Types.Result;
+import discord_game_sdk.Types;
 
 class ApplicationManager {
 	var core:Core;

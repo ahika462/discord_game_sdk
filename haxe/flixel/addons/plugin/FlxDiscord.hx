@@ -7,7 +7,7 @@ import discord_game_sdk.Core;
 import flixel.FlxBasic;
 
 /**
- * Provides basic features of Discord Game SDK.
+ * Provides basic features of Discord GameSDK.
  */
 class FlxDiscord extends FlxBasic {
 	var core:Core = new Core();
@@ -23,21 +23,20 @@ class FlxDiscord extends FlxBasic {
 
 	override function update(elapsed:Float) {
 		final r:Result = core.runCallbacks();
-		if (isError(r) && onError != null)
+		if (r.isError() && onError != null)
 			onError(r);
 
-		core.runCallbacks();
 		super.update(elapsed);
 	}
 
 	override function destroy() {
 		super.destroy();
-		core = null;
+		core = new Core();
 	}
 
 	/**
 	 * Initializes the core.
-	 * @param clientID Discord application ID.
+	 * @param clientID Discord application client ID.
 	 * @param onReady Start callback.
 	 * @param onError Error callback.
 	 */
@@ -51,17 +50,13 @@ class FlxDiscord extends FlxBasic {
 
 	/**
 	 * Updates Discord presence activity.
-	 * @param activity 
+	 * @param activity Activity
 	 */
 	public function updateActivity(activity:Activity) {
 		core.activityManager.updateActivity(activity, (r:Result) -> {
-			if (isError(r) && onError != null)
+			if (r.isError() && onError != null)
 				onError(r);
 		});
-	}
-
-	static inline function isError(r:Result):Bool {
-		return (r != Ok && r != NotRunning && r != NotInstalled && r != NotAuthenticated);
 	}
 }
 #end

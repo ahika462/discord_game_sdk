@@ -1,4 +1,4 @@
-# Discord Game SDK
+# Discord GameSDK
 
 <img src="richpresence.png" alt="drawing" width="75%" height=50%/>
 

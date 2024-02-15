@@ -6,12 +6,15 @@ import cpp.UInt8;
 import cpp.UInt64;
 import haxe.Int32;
 import haxe.Int64;
-import discord_game_sdk.DiscordGameSDK;
 
 @:include('types.h')
 
 enum abstract Result(Int) from Int to Int {
 	public static final list:ReadOnlyArray<String> = Macros.buildArray('discord_game_sdk.Types.Result', ['list']);
+
+	public function isError():Bool {
+		return (this != Ok && this != NotInstalled && this != NotRunning);
+	}
 	
 	var Ok;
 	var ServiceUnavailable;

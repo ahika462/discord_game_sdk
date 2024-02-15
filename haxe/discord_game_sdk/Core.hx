@@ -16,7 +16,7 @@ class Core {
 	var internal_:RawPointer<DiscordCore>;
 
 	@:functionCode('
-		internal_ = discord::Core();
+		internal_ = &discord::Core();
 	')
 	public function new() {
 		applicationManager = new ApplicationManager(this);
