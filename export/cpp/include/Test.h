@@ -6,10 +6,6 @@
 #include <hxcpp.h>
 #endif
 
-#ifndef INCLUDED_a399fd0a245309ff
-#define INCLUDED_a399fd0a245309ff
-#include "C:/Users/Home/Documents/GitHub/discord_game_sdk/haxe/discord/ffi.h"
-#endif
 HX_DECLARE_CLASS0(Test)
 
 
@@ -49,18 +45,12 @@ class HXCPP_CLASS_ATTRIBUTES Test_obj : public ::hx::Object
 
 		HX_DO_RTTI_ALL;
 		static bool __GetStatic(const ::String &inString, Dynamic &outValue, ::hx::PropertyAccess inCallProp);
-		static bool __SetStatic(const ::String &inString, Dynamic &ioValue, ::hx::PropertyAccess inCallProp);
 		static void __register();
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("Test",72,f4,d2,37); }
 
-		static  DiscordUser user;
-		static  IDiscordLobbySearchQuery query;
 		static void main();
 		static ::Dynamic main_dyn();
-
-		static void makeUser();
-		static ::Dynamic makeUser_dyn();
 
 };
 

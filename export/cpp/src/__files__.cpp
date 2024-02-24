@@ -5,27 +5,65 @@ namespace hx {
 const char *__hxcpp_all_files[] = {
 #ifdef HXCPP_DEBUGGER
 "?",
+"C:\\HaxeToolkit\\haxe\\std/StringTools.hx",
 "C:\\HaxeToolkit\\haxe\\std/cpp/_std/Std.hx",
 "C:\\HaxeToolkit\\haxe\\std/cpp/_std/haxe/Log.hx",
+"C:\\HaxeToolkit\\haxe\\std/haxe/Int64Helper.hx",
 "C:\\HaxeToolkit\\haxe\\std/haxe/iterators/ArrayIterator.hx",
 "Test.hx",
+"discord/ActivityManager.hx",
+"discord/Core.hx",
+"discord/Types.hx",
 #endif
  0 };
 
 const char *__hxcpp_all_files_fullpath[] = {
 #ifdef HXCPP_DEBUGGER
 "C:\\Users\\Home\\Documents\\GitHub\\discord_game_sdk\\?",
+"C:\\HaxeToolkit\\haxe\\std\\StringTools.hx",
 "C:\\HaxeToolkit\\haxe\\std\\cpp\\_std\\Std.hx",
 "C:\\HaxeToolkit\\haxe\\std\\cpp\\_std\\haxe\\Log.hx",
+"C:\\HaxeToolkit\\haxe\\std\\haxe\\Int64Helper.hx",
 "C:\\HaxeToolkit\\haxe\\std\\haxe\\iterators\\ArrayIterator.hx",
 "C:\\Users\\Home\\Documents\\GitHub\\discord_game_sdk\\Test.hx",
+"C:\\Users\\Home\\Documents\\GitHub\\discord_game_sdk\\haxe\\discord\\ActivityManager.hx",
+"C:\\Users\\Home\\Documents\\GitHub\\discord_game_sdk\\haxe\\discord\\Core.hx",
+"C:\\Users\\Home\\Documents\\GitHub\\discord_game_sdk\\haxe\\discord\\Types.hx",
 #endif
  0 };
 
 const char *__hxcpp_all_classes[] = {
 #ifdef HXCPP_DEBUGGER
 "Std",
+"StringTools",
 "Test",
+"discord.ActivityManager",
+"discord.Core",
+"discord.User",
+"discord.OAuth2Token",
+"discord.ImageHandle",
+"discord.ImageDimensions",
+"discord.ActivityTimestamps",
+"discord.ActivityAssets",
+"discord.PartySize",
+"discord.ActivityParty",
+"discord.ActivitySecrets",
+"discord.Activity",
+"discord.Presence",
+"discord.Relationship",
+"discord.Lobby",
+"discord.ImeUnderline",
+"discord.Rect",
+"discord.FileStat",
+"discord.Entitlement",
+"discord.SkuPrice",
+"discord.Sku",
+"discord.InputMode",
+"discord.UserAchievement",
+"discord.LobbyTransaction",
+"discord.LobbyMemberTransaction",
+"discord.LobbySearchQuery",
+"haxe.Int64Helper",
 "haxe.Log",
 "haxe.iterators.ArrayIterator",
 #endif

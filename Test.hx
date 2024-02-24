@@ -1,23 +1,22 @@
-import discord.FFI.IDiscordLobbySearchQuery;
-import discord.FFI.DiscordUser;
+import discord.Types;
+import haxe.Int64Helper;
+import discord.Core;
 
-@:include('./haxe/discord/ffi.h')
 class Test {
-	static var user:DiscordUser;
-	static var query:IDiscordLobbySearchQuery;
-
 	static function main() {
-		makeUser();
-		user.id = 10;
-		trace(user.id);
+		var core:Core = new Core();
+		Core.create(Int64Helper.parseString('1186993153513889792'), cast CreateFlags.NoRequireDiscord, core);
+		core.activityManager.updateActivity({
+			details: '',
+			assets: {
+				largeImage: 'icon'
+			}
+		}, (result:Result) -> trace(result));
 
-		trace(query.filter(cpp.RawPointer.addressOf(query), [], DiscordLobbySearchComparison_Equal, DiscordLobbySearchCast_String, []));
-
-		var c:Int = 0;
-		while (true)
-			c++;
+		while (true) {
+			final result:Result = core.runCallbacks();
+			if (result != Ok)
+				trace(result);
+		}
 	}
-	
-	@:functionCode('user = DiscordUser();')
-	static function makeUser() {}
 }
