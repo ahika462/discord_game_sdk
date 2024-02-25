@@ -14,6 +14,7 @@ import cpp.RawPointer;
 @:build(DiscordMacros.include(['discord/Activity.h']))
 class ActivityManager {
 	var internal_:RawPointer<IDiscordActivityManager>;
+	static var events_:IDiscordActivityEvents;
 
 	@:functionCode('internal_ = IDiscordActivityManager();')
 	public function new() {}

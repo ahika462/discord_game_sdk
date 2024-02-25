@@ -5,7 +5,38 @@ import discord.Types;
 import discord._internal.IDiscordCore;
 import cpp.RawPointer;
 
+@:build(DiscordMacros.load())
 @:build(DiscordMacros.include(['./_internal/ffi.h', 'discord/ActivityManager.h']))
+@:cppFileCode('
+	namespace discord {
+		class ActivityEvents {
+			public:
+				static void DISCORD_CALLBACK onActivityJoin(void* callbackData, const char* secret) {
+
+				}
+
+				static void DISCORD_CALLBACK onActivitySpectate(void* callbackData, const char* secret) {
+
+				}
+
+				static void DISCORD_CALLBACK onActivityJoinRequest(void* callbackData, DiscordUser* user)
+				{
+
+				}
+
+				static void DISCORD_CALLBACK onActivityInvite(void* callbackData, EDiscordActivityActionType type, DiscordUser* user, DiscordActivity* activity) {
+
+				}
+		};
+
+		/*IDiscordActivityEvents ActivityManager::events_{
+			&ActivityEvents::onActivityJoin,
+			&ActivityEvents::onActivitySpectate,
+			&ActivityEvents::onActivityJoinRequest,
+			&ActivityEvents::onActivityInvite
+		};*/
+	}
+')
 class Core {
 	var internal_:RawPointer<IDiscordCore>;
 
@@ -14,12 +45,11 @@ class Core {
 
 	@:functionCode('Core* instanceptr = &instance;
 					Core** instanceptrptr = &instanceptr;
-					IDiscordCore** internal_ = &instance->internal_;
 	
 					if (!instanceptrptr)
 						return (int)EDiscordResult::DiscordResult_InternalError;
 
-					// (*instanceptrptr) = new Core();
+					(*instanceptrptr) = new Core();
 					DiscordCreateParams params{};
 					DiscordCreateParamsSetDefault(&params);
 					params.client_id = clientID;
@@ -27,7 +57,7 @@ class Core {
 					params.events = nullptr;
 					params.event_data = *instanceptrptr;
 					params.user_events = nullptr;
-					params.activity_events = nullptr;
+					// params.activity_events = &ActivityManager::events_;
 					params.relationship_events = nullptr;
 					params.lobby_events = nullptr;
 					params.network_events = nullptr;
