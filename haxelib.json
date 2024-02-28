@@ -3,6 +3,5 @@
 	"license": "MIT",
 	"releasenote": "",
 	"contributors": ["ahika462"],
-	"version": "0.1.6",
-	"classPath": "haxe"
+	"version": "0.3.6"
 }

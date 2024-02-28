@@ -1,0 +1,71 @@
+<xml>
+
+	<set name="SDK_LINC_PATH" value="${LINC_DISCORD_GAME_SDK_PATH}linc/"/>
+	<set name="SDK_CPP_PATH" value="${LINC_DISCORD_GAME_SDK_PATH}lib/cpp/"/>
+	<set name="SDK_LIB_PATH" value="${LINC_DISCORD_GAME_SDK_PATH}lib/lib/"/>
+
+	<files id="haxe">
+
+		<compilerflag value='-I${SDK_LINC_PATH}'/>
+		<compilerflag value='-I${SDK_CPP_PATH}'/>
+
+		<file name='${SDK_LINC_PATH}linc_discord_game_sdk.cpp' />
+		<file name='${SDK_CPP_PATH}achievement_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}activity_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}application_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}core.cpp'/>
+		<file name='${SDK_CPP_PATH}image_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}lobby_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}network_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}overlay_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}relationship_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}storage_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}store_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}user_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}voice_manager.cpp'/>
+		<file name='${SDK_CPP_PATH}types.cpp'/>
+
+	</files>
+
+	<target id="haxe">
+
+		<section if="lime">
+
+			<section if="32bits">
+
+				<libpathflag value="-L${SDK_LIB_PATH}x86/"/>
+
+				<lib name="${SDK_LIB_PATH}x86/discord_game_sdk.dll.lib"/>
+
+			</section>
+			<section unless="32bits">
+
+				<libpathflag value="-L${SDK_LIB_PATH}x86_64/"/>
+
+				<lib name="${SDK_LIB_PATH}x86_64/discord_game_sdk.dll.lib"/>
+
+			</section>
+
+		</section>
+		<section unless="lime">
+
+			<section unless="HXCPP_M64">
+
+				<libpathflag value="-L${SDK_LIB_PATH}x86/"/>
+
+				<lib name="${SDK_LIB_PATH}x86/discord_game_sdk.dll.lib"/>
+
+			</section>
+			<section if="HXCPP_M64">
+
+				<libpathflag value="-L${SDK_LIB_PATH}x86_64/"/>
+
+				<lib name="${SDK_LIB_PATH}x86_64/discord_game_sdk.dll.lib"/>
+
+			</section>
+
+		</section>
+
+	</target>
+
+</xml>

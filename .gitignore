@@ -1,5 +1,2 @@
-.idea/
 .vscode/
-dump/
-discord_game_sdk.iml
-discord_game_sdk.sln
+bin/

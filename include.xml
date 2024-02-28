@@ -1,0 +1,4 @@
+<xml>
+	<dependency name="lib/lib/x86/discord_game_sdk.dll" if="32bits"/>
+	<dependency name="lib/lib/x86_64/discord_game_sdk.dll" unless="32bits"/>
+</xml>
