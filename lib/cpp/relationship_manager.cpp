@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "relationship_manager.h"
 
 #include "core.h"
@@ -14,7 +15,7 @@ namespace discord {
 
 class RelationshipEvents final {
 public:
-    static void DISCORD_CALLBACK OnRefresh(void* callbackData)
+    static void OnRefresh(void* callbackData)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {
@@ -25,8 +26,7 @@ public:
         module.OnRefresh();
     }
 
-    static void DISCORD_CALLBACK OnRelationshipUpdate(void* callbackData,
-                                                      DiscordRelationship* relationship)
+    static void OnRelationshipUpdate(void* callbackData, DiscordRelationship* relationship)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {

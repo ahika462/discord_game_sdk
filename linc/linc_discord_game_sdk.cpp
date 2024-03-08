@@ -25,9 +25,9 @@ namespace linc {
 		const char* name, const char* state, const char* details,
 		int64_t startTimestamp, int64_t endTimestamp,
 		const char* largeImage, const char* largeText, const char* smallImage, const char* smallText,
-		const char* partyID, int32_t partySize, int32_t partyMax, int partyPrivacy,
+		const char* partyID, int32_t partySize, int32_t partyMax,
 		const char* matchSecret, const char* joinSecret, const char* spectateSecret,
-		bool instance, uint32_t supportedPlatforms,
+		bool instance,
 		Dynamic& callback) {
 			discord::Activity activity{};
 			activity.SetType((discord::ActivityType)type);
@@ -44,12 +44,10 @@ namespace linc {
 			activity.GetParty().SetId(partyID);
 			activity.GetParty().GetSize().SetCurrentSize(partySize);
 			activity.GetParty().GetSize().SetMaxSize(partyMax);
-			activity.GetParty().SetPrivacy((discord::ActivityPartyPrivacy)partyPrivacy);
 			activity.GetSecrets().SetMatch(matchSecret);
 			activity.GetSecrets().SetJoin(joinSecret);
 			activity.GetSecrets().SetSpectate(spectateSecret);
 			activity.SetInstance(instance);
-			activity.SetSupportedPlatforms(supportedPlatforms);
 			
 			core->ActivityManager().UpdateActivity(activity, [callback = std::move(callback)](discord::Result result) {
 				const_cast<Dynamic&>(callback)((int)result);

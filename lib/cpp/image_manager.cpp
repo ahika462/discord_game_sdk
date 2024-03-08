@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "image_manager.h"
 
 #include "core.h"

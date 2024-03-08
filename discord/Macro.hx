@@ -15,6 +15,7 @@ using haxe.macro.PositionTools;
  */
 class Macro {
 	inline static var dllName:String = 'discord_game_sdk.dll';
+	inline static var libName:String = 'discord_game_sdk';
 
 	public static macro function copyDll(output:String):Array<Field> {
 		#if !lime
@@ -27,7 +28,7 @@ class Macro {
 		sourcePath = Path.normalize(sourcePath);
 
 		var dllDirectory:String = #if HXCPP_M64 'x86_64' #else 'x86' #end;
-		var dllPath:String = '$sourcePath/lib/lib/$dllDirectory/$dllName';
+		var dllPath:String = Path.normalize(Path.join([sourcePath, 'lib/lib', dllDirectory, dllName]));
 
 		if (!FileSystem.exists(output))
 			FileSystem.createDirectory(output);

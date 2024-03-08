@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "user_manager.h"
 
 #include "core.h"
@@ -14,7 +15,7 @@ namespace discord {
 
 class UserEvents final {
 public:
-    static void DISCORD_CALLBACK OnCurrentUserUpdate(void* callbackData)
+    static void OnCurrentUserUpdate(void* callbackData)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {

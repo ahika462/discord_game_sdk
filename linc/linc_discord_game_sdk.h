@@ -12,9 +12,9 @@ namespace linc {
 		const char* name, const char* state, const char* details,
 		int64_t startTimestamp, int64_t endTimestamp,
 		const char* largeImage, const char* largeText, const char* smallImage, const char* smallText,
-		const char* partyID, int32_t partySize, int32_t partyMax, int partyPrivacy,
+		const char* partyID, int32_t partySize, int32_t partyMax,
 		const char* matchSecret, const char* joinSecret, const char* spectateSecret,
-		bool instance, uint32_t supportedPlatforms,
+		bool instance,
 		Dynamic& callback);
 		extern void clear_activity(Dynamic& callback);
 		extern void send_request_reply(int64_t userID, int reply, Dynamic& callback);

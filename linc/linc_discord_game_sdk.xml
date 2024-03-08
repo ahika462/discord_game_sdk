@@ -1,5 +1,7 @@
 <xml>
 
+	<pragma once="true" />
+
 	<set name="SDK_LINC_PATH" value="${LINC_DISCORD_GAME_SDK_PATH}linc/"/>
 	<set name="SDK_CPP_PATH" value="${LINC_DISCORD_GAME_SDK_PATH}lib/cpp/"/>
 	<set name="SDK_LIB_PATH" value="${LINC_DISCORD_GAME_SDK_PATH}lib/lib/"/>
@@ -29,25 +31,7 @@
 
 	<target id="haxe">
 
-		<section if="lime">
-
-			<section if="32bits">
-
-				<libpathflag value="-L${SDK_LIB_PATH}x86/"/>
-
-				<lib name="${SDK_LIB_PATH}x86/discord_game_sdk.dll.lib"/>
-
-			</section>
-			<section unless="32bits">
-
-				<libpathflag value="-L${SDK_LIB_PATH}x86_64/"/>
-
-				<lib name="${SDK_LIB_PATH}x86_64/discord_game_sdk.dll.lib"/>
-
-			</section>
-
-		</section>
-		<section unless="lime">
+		<section if="windows">
 
 			<section unless="HXCPP_M64">
 
@@ -56,7 +40,7 @@
 				<lib name="${SDK_LIB_PATH}x86/discord_game_sdk.dll.lib"/>
 
 			</section>
-			<section if="HXCPP_M64">
+			<section id="HXCPP_M64">
 
 				<libpathflag value="-L${SDK_LIB_PATH}x86_64/"/>
 

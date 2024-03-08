@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "voice_manager.h"
 
 #include "core.h"
@@ -14,7 +15,7 @@ namespace discord {
 
 class VoiceEvents final {
 public:
-    static void DISCORD_CALLBACK OnSettingsUpdate(void* callbackData)
+    static void OnSettingsUpdate(void* callbackData)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {

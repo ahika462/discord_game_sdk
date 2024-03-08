@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "storage_manager.h"
 
 #include "core.h"

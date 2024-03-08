@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "core.h"
 
 #include <cstring>

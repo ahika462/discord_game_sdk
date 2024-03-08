@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "activity_manager.h"
 
 #include "core.h"
@@ -14,7 +15,7 @@ namespace discord {
 
 class ActivityEvents final {
 public:
-    static void DISCORD_CALLBACK OnActivityJoin(void* callbackData, char const* secret)
+    static void OnActivityJoin(void* callbackData, char const* secret)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {
@@ -25,7 +26,7 @@ public:
         module.OnActivityJoin(static_cast<const char*>(secret));
     }
 
-    static void DISCORD_CALLBACK OnActivitySpectate(void* callbackData, char const* secret)
+    static void OnActivitySpectate(void* callbackData, char const* secret)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {
@@ -36,7 +37,7 @@ public:
         module.OnActivitySpectate(static_cast<const char*>(secret));
     }
 
-    static void DISCORD_CALLBACK OnActivityJoinRequest(void* callbackData, DiscordUser* user)
+    static void OnActivityJoinRequest(void* callbackData, DiscordUser* user)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {
@@ -47,10 +48,10 @@ public:
         module.OnActivityJoinRequest(*reinterpret_cast<User const*>(user));
     }
 
-    static void DISCORD_CALLBACK OnActivityInvite(void* callbackData,
-                                                  EDiscordActivityActionType type,
-                                                  DiscordUser* user,
-                                                  DiscordActivity* activity)
+    static void OnActivityInvite(void* callbackData,
+                                 EDiscordActivityActionType type,
+                                 DiscordUser* user,
+                                 DiscordActivity* activity)
     {
         auto* core = reinterpret_cast<Core*>(callbackData);
         if (!core) {

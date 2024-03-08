@@ -3,6 +3,7 @@
 #endif
 
 #include <hxcpp.h>
+
 #include "application_manager.h"
 
 #include "core.h"
